@@ -28,7 +28,7 @@ function handleMessageSubmit(event) {
 function handleNicknameSubmit(event) {
   event.preventDefault();
 
-  const input = room.querySelector("#name input");
+  const input = welcome.querySelector("#name input");
   socket.emit("nickname", input.value);
 
   const h2 = document.querySelector("#nickname-status");
@@ -43,11 +43,12 @@ function showRoom() {
   h3.innerText = `Room ${roomName}`;
 
   const msgForm = room.querySelector("#msg");
-  const nameForm = room.querySelector("#name");
 
   msgForm.addEventListener("submit", handleMessageSubmit);
-  nameForm.addEventListener("submit", handleNicknameSubmit);
 }
+
+const nameForm = welcome.querySelector("#name");
+nameForm.addEventListener("submit", handleNicknameSubmit);
 
 function handleRoomSubmit(event) {
   event.preventDefault();
